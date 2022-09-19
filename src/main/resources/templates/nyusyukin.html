@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>入出金画面</title>
+</head>
+
+<body>
+    <h1 th:inline="text">入出金画面</h1>
+    
+    <form action="/" method="post" th:action="@{/kingaku}"> 
+        <p>金額（必須）：<input type="text" id="kingaku" name="kingaku" /></p>
+        <p><input type="submit" id="inout" name="inout" value="入金">
+            <input type="submit" id="inout" name="inout"  value="出金"></p>
+            <p><input type="reset" value="入力取り消し"></p>
+    </form>
+    <table border="1">
+        <tr>
+            <th>取引番号</th>
+            <th>取引種別</th>
+            <th>取引金額</th>
+            <th>登録日</th>
+        </tr>
+        <tr>
+            <tr th:each="data : ${bankDataList}" th:object="${data}">
+                <td th:text="*{transaction_number}"></td>
+                <td th:text="*{transaction_type}"></td>
+                <td th:text="*{transaction_amount}"></td>
+                <td th:text="*{date}"></td>
+            </tr>
+    </table>
+    <form th:action="@{/logout}" method="post">
+        <input type="submit" value="戻る" />
+    </form>
+
+</body>
+
+</html>

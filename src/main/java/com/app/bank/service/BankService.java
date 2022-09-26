@@ -9,7 +9,7 @@ import com.app.bank.entity.BankEntity;
 import com.app.bank.repository.BankRepository;
 @Service
 @Transactional
-public class BankService{
+public class BankService implements IBankService<BankEntity>{
 
   @Autowired
   BankRepository bankRepository;

@@ -28,7 +28,7 @@ public class BankController {
     	
         System.out.println(inout);        
         
-       bankRepository.save(GetBank(kingaku,inout));
+       bankRepository.save(getBank(kingaku,inout));
         return "redirect:/"; // リダイレクトで"/"に戻る
     }
     
@@ -57,7 +57,7 @@ public class BankController {
      * @param inout 入金or出金
      * @return エンティティ
      */
-    private BankEntity GetBank(int kingaku,String inout) {
+    private BankEntity getBank(int kingaku,String inout) {
     	
     	LocalDateTime now = LocalDateTime.now();
 
